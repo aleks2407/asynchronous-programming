@@ -13,7 +13,6 @@ What makes web development so cool is the ... web.  Being able to build applicat
 
 Enter _asynchronous programming_: writing code that tells your browser to start one task and move on to a new task while you wait for the first to finish.  This is possible because of the _Event Loop_.
 
-
 ## Contents
 
 - [Learning Objectives](#learning-objectives)
@@ -75,6 +74,8 @@ References and Practice to help you master this module.
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
 - [flavicops](https://flaviocopes.com/javascript-event-loop/)
 - [javascript.info/settimeout-setinterval](https://javascript.info/settimeout-setinterval)
+- [https://javascript.info/event-loop](https://javascript.info/event-loop)
+- [Use case for using setTimeout(0)](https://javascript.info/event-loop#use-case-3-doing-something-after-the-event)
 - [Beau from FCC](https://www.youtube.com/watch?v=kOcFZV3c75I) (timeouts & intervals)
 
 ### Callbacks, Promises, Async
@@ -83,9 +84,11 @@ References and Practice to help you master this module.
   - [Coding Train](https://www.youtube.com/watch?v=QO4NXhWo_NM&list=PLRqwX-V7Uu6bKLPQvPRNNE65kBL62mVfx)
   - [Dev Ed](https://www.youtube.com/watch?v=_8gHHBlbziw)
   - [Traversy](https://www.youtube.com/watch?v=PoRJizFvM7s)
-  - [javascript.info](https://javascript.info/fetch)
+  - [javascript.info](https://javascript.info/async)
   - MDN: [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), [Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
   - HYF ... [AMS](https://github.com/HackYourFuture/JavaScript3/), [CPH](https://github.com/HackYourFuture-CPH/JavaScript/tree/master/javascript3)
+  - [Async/Await - FunFunFunction](https://www.youtube.com/watch?v=568g8hxJJp4)
+  - [`return await` (advanced)](https://stackoverflow.com/questions/38708550/difference-between-return-await-promise-and-return-promise)
 - Practice
   - [learn-promises](https://github.com/oliverjam/learn-promises)
   - [promise-practice](https://github.com/oliverjam/promise-practice)
@@ -102,11 +105,13 @@ References and Practice to help you master this module.
 - APIs 101
   - [How do they work?](https://www.programmableweb.com/api-university/what-are-apis-and-how-do-they-work)
   - [Like a Restaurant](https://www.youtube.com/watch?v=s7wmiS2mSXY)
-- **DevTools**, the Network Tab: [chrome/ium](https://developers.google.com/web/tools/chrome-devtools/network/), [firefox](https://developer.mozilla.org/en-US/docs/Tools/Network_Monitor)
+- **DevTools**, the Network Tab:
+  - [chrome/ium](https://developers.google.com/web/tools/chrome-devtools/network/)
+  - [firefox](https://developer.mozilla.org/en-US/docs/Tools/Network_Monitor)
 - What is RESTful
-  - [jsonplaceholder.typicode.com/](https://jsonplaceholder.typicode.com/guide.html)
+  - JSON Placeholder:[live](https://jsonplaceholder.typicode.com/), [more docs](https://github.com/typicode/json-server)
   - [restfulapi.net](https://restfulapi.net/)
-* [restfulapi.net](https://restfulapi.net/)
+- [Coding Train](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YxDKpFzf_2D84p0cyk4T7X)
 - [what is CORS?](https://www.codecademy.com/articles/what-is-cors)
 
 
@@ -120,6 +125,7 @@ References and Practice to help you master this module.
   - [Fetch API Introduction](https://www.youtube.com/watch?v=PoRJizFvM7s)
   - [Learn Fetch API](https://www.youtube.com/watch?v=cuEtnrL9-H0)
   - [Async/Await Javascript and Promises - Fetch API vs Axios](https://www.youtube.com/watch?v=XCLtVQl1if0)
+  - [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Basic_concepts)
   - [this-to-fetch](https://github.com/hackyourfuturebelgium/this-to-fetch-example)
 - Practice
   - [learn-fetch](https://github.com/oliverjam/learn-fetch)
@@ -225,10 +231,19 @@ Promises & `fetch`
 
 > before class
 
-- promises
-- [Isolate](./isolate/index.html)
-  - 2. Promises
-- [APIs](#apis)
+- Promises
+  - [js.info](https://javascript.info/async): 1 -> 4
+  - [Isolate](./isolate/index.html): 3. Promises
+  - [Callbacks, Promises, Async](#callbacks-promises-async)
+- APIs & REST
+  - [Restful Routes?](https://medium.com/@atingenkay/restful-routes-what-are-they-8fe221521bb)
+  - JSON Placeholder:[live](https://jsonplaceholder.typicode.com/guide.html), [more docs](https://github.com/typicode/json-server)
+  - [Presentation - Javascript Fetch and REST API](./slides/fetch-and-rest-api.html)
+- **DevTools**, the Network Tab:
+  - [chrome/ium](https://developers.google.com/web/tools/chrome-devtools/network/)
+  - [firefox](https://developer.mozilla.org/en-US/docs/Tools/Network_Monitor)
+- [`fetch`](#fetch)
+  - [Isolate](./isolate/index.html): 4. `fetch` (examples)
 
 ### Lesson Plan
 
@@ -237,12 +252,13 @@ Promises & `fetch`
 #### Before Break
 
 - [Isolate](./isolate/index.html)
-  - 3. `fetch` promises
+  - `fetch`
+  - `fetch` REST
 
 #### After Break
 
 - Integrate
-  - 2. `fetch`
+   `fetch` REST
 
 ### Project
 
@@ -250,9 +266,25 @@ Promises & `fetch`
 
 _individual project_
 
-You've made it this far, time to show off a bit!  Build yourself a sick portfolio to showcase all of your work so far.  Using the GitHub API gather stats, links and collaborators to showcase your best work.
+You've made it this far, time to show off a bit!  Build yourself a sick portfolio to showcase all of your work so far.  Using the [GitHub API](https://docs.github.com/en/free-pro-team@latest/rest) gather stats, links and collaborators to showcase your best work. Here is a [boilerplate repository](https://github.com/HackYourFutureBelgium/starter-basic-import-export), and a [helpful tutorial](https://www.youtube.com/watch?v=5QlE6o-iYcE) to get you rolling (hint: avoid pushing your GitHub auth token!).
 
-Challenges, Try to implement these concepts:
+#### Checklist
+
+```md
+- [ ] [repo](https://github.com/_/_) (with a complete README)
+- [ ] [live demo](https://_.github.io/_)
+- Project Planning
+  - [ ] [Backlog](https://github.com/_/_/tree/master/project-planning/backlog.md)
+  - [ ] [Development Strategy](https://github.com/_/_/tree/master/project-planning/development-strategy.md)
+  - [ ] [Project board](https://github.com/_/_/projects/_)
+- Implementation
+  - [ ] ES Modules (`import`/`export`)
+  - [ ] at least one `class`
+  - [ ] at least one call to the GitHub API
+  - [ ] Logs of each user interaction
+```
+
+Looking for an extra challenge? Try to implement these concepts:
 
 - [learn-component-architecture](https://github.com/oliverjam/learn-component-architecture)
 - [client-side-routing](https://github.com/oliverjam/learn-client-side-routing)
@@ -274,8 +306,14 @@ Challenges, Try to implement these concepts:
 
 > before class
 
+- `async`/`await`
+  - Coding Train: [pt 1](https://www.youtube.com/watch?v=XO77Fib9tSI), [pt 2](https://www.youtube.com/watch?v=chavThlNz3s&feature=emb_rel_pause)
+  - [FunFunFunction](https://www.youtube.com/watch?v=568g8hxJJp4)
+  - [javascript.info](https://javascript.info/async-await)
+- URI encoding: [URI or component?](https://stackoverflow.com/questions/4540753/should-i-use-encodeuri-or-encodeuricomponent-for-encoding-urls), [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent)
 - [isolate](./isolate/index.html)
-  - 5. `async`/`await`
+  - 6. `await` vs. `then`
+  - 7. `async`/`await` - `fetch` (examples)
 
 ### Lesson Plan
 
@@ -284,24 +322,42 @@ Challenges, Try to implement these concepts:
 #### Before Break
 
 - [isolate](./isolate/index.html)
-  - 6. `fetch` with `async`/`await`
+  - 7. `async`/`await` - `fetch` (exercises)
+  - 8. `async`/`await` - `fetch` REST
 
 #### After Break
 
+- [integrate](./integrate/README.md)
+  - 3. `async`/`await` refactor
 
 ### Project
 
 > after class
 
-[restful-pjs](https://github.com/HackYourFutureBelgium/restful-pjs). to study - [this-to-fetch](https://github.com/hackyourfuturebelgium/this-to-fetch-example)
+Remember todo lists?  Here's another to add to yours :) There are more detailed instructions in `INSTRUCTIONS.md`
+
+- [restful-pjs](https://github.com/HackYourFutureBelgium/restful-pjs).
 
 
-### Deployment
+#### Checklist
 
-Because this project has a backend it's not possible to deploy it with GitHub Pages. Choose one person in your group to be responsible for _dev-ops_ and _deployment_. We have provided a GitHub action to deploy to heroku, someone in your group needs to make sure it's working correctly:
+```md
+- [ ] [repo](https://github.com/_/_) (with a complete README)
+- Project Planning
+  - [ ] [Backlog](https://github.com/_/_/tree/master/project-planning/backlog.md)
+  - [ ] [Development Strategy](https://github.com/_/_/tree/master/project-planning/development-strategy.md)
+  - [ ] [Project board](https://github.com/_/_/projects/_)
+- Implementation
+  - [ ] ES Modules (`import`/`export`)
+  - [ ] at least one `class`
+  - [ ] `async`/`await`
+  - [ ] Logs of each user interaction
+- [ ] [deployed demo]() (optional challenge)
+```
 
-* [FCC Article](https://www.freecodecamp.org/news/how-to-deploy-a-nodejs-app-to-heroku-from-github-without-installing-heroku-on-your-machine-433bec770efe/)
-* [Heroku CI](https://www.heroku.com/continuous-integration)
+#### Deployment (challenge)
+
+Because this project has a backend it's not possible to deploy it with GitHub Pages. Choose one person in your group to be responsible for _dev-ops_ and _deployment_.  There's more info on deployment in the starter repository.
 
 </details>
 
@@ -337,4 +393,15 @@ Because this project has a backend it's not possible to deploy it with GitHub Pa
 ---
 
 ### Class 9 & 10
+
+> [Bram](https://github.com/bramdevries), [Deni](https://github.com/denichodev)
+
+1. week 1:
+    - Part 1: [Isolate - The Event Loop](https://vimeo.com/459858141)
+    - Part 2: [Integrate - Event Loop](https://vimeo.com/460082162)
+    - Part 3: [Recap & Project Intro](https://vimeo.com/460082763)
+
+1. week 2:
+    - Part 1: [Isolate - Fetch & REST](https://vimeo.com/462531506)
+    - Part 2: [Integrate - Fetch & REST](https://vimeo.com/462536889)
 
